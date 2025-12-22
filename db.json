@@ -1,0 +1,115 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@gmail.com",
+      "password": "123456",
+      "name": "Admin User",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "email": "employee@gmail.com",
+      "password": "123456",
+      "name": "Employee User",
+      "role": "employee"
+    },
+    {
+      "id": 3,
+      "email": "guest@gmail.com",
+      "password": "123456",
+      "name": "Guest User",
+      "role": "guest"
+    }
+  ],
+  "features": [
+    {
+      "id": 1,
+      "key": "dashboard",
+      "enabled": true,
+      "roles": ["admin", "guest"]
+    },
+    {
+      "id": 2,
+      "key": "reports",
+      "enabled": true,
+      "roles": ["admin"]
+    }
+  ],
+  "navItems": [
+    {
+      "id": 1,
+      "label": "Home",
+      "path": "/dashboard",
+      "roles": ["admin", "employee"],
+      "assignableRoles": []
+    },
+    {
+      "id": 2,
+      "label": "Register",
+      "path": "/register",
+      "roles": ["employee", "admin"],
+      "assignableRoles": ["employee", "guest"]
+    },
+    {
+      "id": 3,
+      "label": "Contracts",
+      "path": "/contracts",
+      "roles": ["admin", "employee"],
+      "assignableRoles": ["guest"]
+    },
+    {
+      "id": 4,
+      "label": "Archive",
+      "path": "/archive",
+      "roles": ["admin", "employee"],
+      "assignableRoles": ["employee"]
+    },
+    {
+      "id": 5,
+      "label": "Role Managements",
+      "path": "/role-managements",
+      "roles": ["admin"],
+      "assignableRoles": ["employee"]
+    }
+  ],
+  "graves": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "section": "A",
+      "plot": "12",
+      "birthDate": "1940-01-01",
+      "deathDate": "2020-01-01",
+      "notes": "Veteran"
+    },
+    {
+      "id": 2,
+      "name": "aaa",
+      "section": "A",
+      "plot": "12345",
+      "birthDate": "2025-12-01",
+      "deathDate": "2025-12-22",
+      "notes": "hdhkwsjdab"
+    },
+    {
+      "id": 3,
+      "name": "bbb",
+      "section": "A",
+      "plot": "12346",
+      "birthDate": "2025-12-01",
+      "deathDate": "2025-12-22",
+      "notes": "example note"
+    }
+  ],
+  "sections": [
+    {
+      "id": "A",
+      "name": "Section A"
+    },
+    {
+      "id": "B",
+      "name": "Section B"
+    }
+  ]
+}

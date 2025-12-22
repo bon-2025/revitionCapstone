@@ -1,0 +1,4 @@
+/* hide dropdown arrow for NavDropdown with class "no-caret" */
+.no-caret > .dropdown-toggle::after {
+  display: none;
+}
