@@ -1,54 +1,41 @@
 import { usePhilippineAddress } from "../../hooks/shared/usePhilippineAddress";
 
 export const useRegisterFormConfig = () => {
-  const { regionOptions, provinceOptions, cityOptions, barangayOptions, setRegionId, setProvinceId, setCityId, } = usePhilippineAddress();
+  const {
+    regionOptions,
+    provinceOptions,
+    cityOptions,
+    barangayOptions,
+    setRegionId,
+    setProvinceId,
+    setCityId,
+  } = usePhilippineAddress();
 
   return [
     {
       step: 0,
       title: "Account Information",
       fields: [
-        {
-          name: "username",
-          label: "Username",
-          type: "text",
-          required: true,
-        },
-        {
-          name: "email",
-          label: "Email",
-          type: "email",
-          required: true,
-        },
+        { name: "username", label: "Username", type: "text", required: true },
+        { name: "email", label: "Email", type: "email", required: true },
         {
           name: "role",
           label: "Account Role",
           type: "select",
           required: true,
-          options: ["User", "Admin", "Moderator"].map(r => ({
+          options: ["User", "Admin", "Moderator"].map((r) => ({
             label: r,
             value: r.toLowerCase(),
           })),
         },
       ],
     },
-
     {
       step: 1,
       title: "Personal Details",
       fields: [
-        {
-          name: "firstName",
-          label: "First Name",
-          type: "text",
-          required: true,
-        },
-        {
-          name: "lastName",
-          label: "Last Name",
-          type: "text",
-          required: true,
-        },
+        { name: "firstName", label: "First Name", type: "text", required: true },
+        { name: "lastName", label: "Last Name", type: "text", required: true },
         {
           name: "gender",
           label: "Gender",
@@ -61,7 +48,6 @@ export const useRegisterFormConfig = () => {
         },
       ],
     },
-
     {
       step: 2,
       title: "Address",
@@ -70,14 +56,16 @@ export const useRegisterFormConfig = () => {
           name: "region",
           label: "Region",
           type: "select",
-          options: regionOptions,
+          required: true,
+          options: regionOptions || [],
           onChange: (e) => setRegionId(e.target.value),
         },
         {
           name: "province",
           label: "Province",
           type: "select",
-          options: provinceOptions,
+          required: true,
+          options: provinceOptions || [],
           disabled: !provinceOptions.length,
           onChange: (e) => setProvinceId(e.target.value),
         },
@@ -85,7 +73,8 @@ export const useRegisterFormConfig = () => {
           name: "city",
           label: "City / Municipality",
           type: "select",
-          options: cityOptions,
+          required: true,
+          options: cityOptions || [],
           disabled: !cityOptions.length,
           onChange: (e) => setCityId(e.target.value),
         },
@@ -93,30 +82,18 @@ export const useRegisterFormConfig = () => {
           name: "barangay",
           label: "Barangay",
           type: "select",
-          options: barangayOptions,
+          required: true,
+          options: barangayOptions || [],
           disabled: !barangayOptions.length,
         },
       ],
     },
-
     {
       step: 3,
       title: "Security",
       fields: [
-        {
-          name: "password",
-          label: "Password",
-          type: "password",
-          required: true,
-          minLength: 6,
-        },
-        {
-          name: "confirmPassword",
-          label: "Confirm Password",
-          type: "password",
-          required: true,
-          match: "password",
-        },
+        { name: "password", label: "Password", type: "password", required: true, minLength: 6 },
+        { name: "confirmPassword", label: "Confirm Password", type: "password", required: true, match: "password" },
       ],
     },
   ];

@@ -6,7 +6,7 @@ const Login = lazyWithDelay(() => import("../../pages/login/Login"), 3000);
 const ProfilePage = lazyWithDelay(() => import("../../pages/ProfilePage"), 3000);
 
 /* Dashboards */
-const AdminDashboard = lazyWithDelay(() => import("../../pages/dashboard/AdminDashboard"), 3000);
+const AdminDashboard = lazyWithDelay(() => import("../../pages/dashboard/AdminDashboard"), 30);
 const EmployeeDashboard = lazyWithDelay(() => import("../../pages/dashboard/EmployeeDashboard"), 3000);
 
 /* Feature routes */
