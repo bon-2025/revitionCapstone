@@ -10,6 +10,8 @@ const AdminDashboard = lazyWithDelay(() => import("../../pages/dashboard/AdminDa
 const EmployeeDashboard = lazyWithDelay(() => import("../../pages/dashboard/EmployeeDashboard"), 3000);
 
 const RoleManagement = lazyWithDelay(() => import("../../pages/RoleManagement"), 3000);
+
+
 const DmsLayout = lazyWithDelay(() => import("../../app/layout/DmsLayout"));
 const DmsRegister = lazyWithDelay(() => import("../../pages/Desceaded/RegisterPage"));
 const DmsList = lazyWithDelay(() => import("../../pages/Desceaded/DeceasedListTable"));

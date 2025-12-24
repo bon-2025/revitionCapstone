@@ -1,12 +1,12 @@
 import { Outlet, NavLink } from "react-router-dom";
 import { FaUserPlus, FaList, FaArchive } from "react-icons/fa";
-import { Container, Navbar, Nav, Card, Button } from "react-bootstrap";
+import { Container, Navbar, Nav, Card } from "react-bootstrap";
 
 export default function DmsLayout({ showArchived, setShowArchived }) {
   return (
     <>
-      {/* Sticky Top Navigation Bar */}
-      <Navbar bg="light" expand="lg" className="shadow-sm sticky-top">
+      {/* Navigation Bar (not sticky) */}
+      <Navbar bg="light" expand="lg" className="shadow-sm">
         <Container>
           <Navbar.Brand className="fw-bold text-primary">
             Deceased Management
@@ -39,24 +39,24 @@ export default function DmsLayout({ showArchived, setShowArchived }) {
               </NavLink>
 
               {/* Archive toggle button */}
-                <NavLink
+              <NavLink
                 to="archive"
                 className={({ isActive }) =>
                   `d-flex align-items-center gap-1 px-3 py-2 rounded text-decoration-none ${
                     isActive ? "bg-warning text-white fw-bold" : "text-dark"
                   }`
                 }
-                >
-                  <FaArchive />
-                  Archive
-                </NavLink>
+              >
+                <FaArchive />
+                Archive
+              </NavLink>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
       {/* Main Content */}
-      <Container fluid className="p-4 bg-light" style={{ minHeight: "calc(100vh - 56px)" }}>
+      <Container fluid className="p-4 bg-light" style={{ minHeight: "100vh" }}>
         <Card className="shadow-sm">
           <Card.Body>
             <Outlet />

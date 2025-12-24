@@ -8,6 +8,7 @@ import FormCard from "../../components/RegisterComponents/FormCard";
 import { useRegisterFormConfig } from "../../app/config/registerFormConfig";
 import { buildRegisterSchema } from "../../app/schema/buildRegisterSchema";
 
+
 const Register = () => {
   const config = useRegisterFormConfig();
   const [step, setStep] = useState(0);
