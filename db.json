@@ -22,20 +22,6 @@
       "role": "guest"
     }
   ],
-  "features": [
-    {
-      "id": 1,
-      "key": "dashboard",
-      "enabled": true,
-      "roles": ["admin", "guest"]
-    },
-    {
-      "id": 2,
-      "key": "reports",
-      "enabled": true,
-      "roles": ["admin"]
-    }
-  ],
   "navItems": [
     {
       "id": 1,
@@ -46,24 +32,10 @@
     },
     {
       "id": 2,
-      "label": "Register",
-      "path": "/register",
+      "label": "desceased-management",
+      "path": "/deceased",
       "roles": ["employee", "admin"],
-      "assignableRoles": ["employee", "guest"]
-    },
-    {
-      "id": 3,
-      "label": "Contracts",
-      "path": "/contracts",
-      "roles": ["admin", "employee"],
-      "assignableRoles": ["guest"]
-    },
-    {
-      "id": 4,
-      "label": "Archive",
-      "path": "/archive",
-      "roles": ["admin", "employee"],
-      "assignableRoles": ["employee"]
+      "assignableRoles": ["employee", "admin"]
     },
     {
       "id": 5,

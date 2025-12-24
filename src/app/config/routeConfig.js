@@ -9,14 +9,12 @@ const ProfilePage = lazyWithDelay(() => import("../../pages/ProfilePage"), 3000)
 const AdminDashboard = lazyWithDelay(() => import("../../pages/dashboard/AdminDashboard"), 30);
 const EmployeeDashboard = lazyWithDelay(() => import("../../pages/dashboard/EmployeeDashboard"), 3000);
 
-/* Feature routes */
-const RegisterRoutes = lazyWithDelay(() => import("../routes/RegisterRoutes"));
-const ContractsRoutes = lazyWithDelay(() => import("../routes/ContractsRoutes"));
-const ArchiveRoutes = lazyWithDelay(() => import("../routes/ArchiveRoutes"));
-const RoleManagement = lazyWithDelay(() => import("../../pages/RoleManagement"));
+const RoleManagement = lazyWithDelay(() => import("../../pages/RoleManagement"), 3000);
+const DmsLayout = lazyWithDelay(() => import("../../app/layout/DmsLayout"));
+const DmsRegister = lazyWithDelay(() => import("../../pages/Desceaded/RegisterPage"));
+const DmsList = lazyWithDelay(() => import("../../pages/Desceaded/DeceasedListTable"));
+const DmsArchive = lazyWithDelay(() => import("../../pages/Desceaded/DeceasedArchiveList"));
 
-const RegisterDetails = lazyWithDelay(() => import("../../pages/register/RegisterDetails"));
-const Managements = lazyWithDelay(() => import("../../pages/Management"));
 
 
 /* Route config remains unchanged */
@@ -36,33 +34,18 @@ export const ROUTE_CONFIG = [
     roles: [ROLES.ADMIN, ROLES.EMPLOYEE],
   },
   {
-    path: "/register",
-    element: RegisterRoutes,
+    path: "/deceased",
+    element: DmsLayout,
     roles: [ROLES.ADMIN, ROLES.EMPLOYEE],
-  },
-  {
-    path: "/contracts",
-    element: ContractsRoutes,
-    roles: [ROLES.ADMIN, ROLES.EMPLOYEE],
-  },
-  {
-    path: "/archive",
-    element: ArchiveRoutes,
-    roles: [ROLES.ADMIN, ROLES.EMPLOYEE],
+    children: [
+      { path: "", element: DmsRegister },
+      { path: "list", element: DmsList },
+      { path: "archive", element: DmsArchive },
+    ],
   },
   {
     path: "/role-managements",
     element: RoleManagement,
     roles: [ROLES.ADMIN],
-  },
-  {
-    path: "/register-details",
-    element: RegisterDetails,
-    roles: [ROLES.ADMIN, ROLES.EMPLOYEE],
-  },
-  {
-    path: "/descease-managements",
-    element: Managements,
-    roles: [ROLES.ADMIN, ROLES.EMPLOYEE],
-  },
+  }
 ];

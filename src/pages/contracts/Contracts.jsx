@@ -7,10 +7,10 @@ export default function Contracts() {
 
       <ul className="list-group">
         <li className="list-group-item">
-          <Link to="C-001">Contract C-001</Link>
+          <Link to="/contracts">Contract C-001</Link>
         </li>
         <li className="list-group-item">
-          <Link to="C-002">Contract C-002</Link>
+          <Link to="/contracts">Contract C-002</Link>
         </li>
       </ul>
     </div>

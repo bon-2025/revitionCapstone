@@ -1,3 +1,4 @@
+// Register.jsx
 import { useState, useMemo } from "react";
 import { Container, Button } from "react-bootstrap";
 import { useForm, FormProvider } from "react-hook-form";
@@ -38,21 +39,21 @@ const Register = () => {
   if (!currentStep) return <div>Loading...</div>;
 
   return (
-    <Container className="mt-5" style={{ maxWidth: 900 }}>
+    <Container className="mt-3" style={{ maxWidth: 900 }}>
       <FormProvider {...methods}>
         {step < config.length - 1 ? (
           <>
             <FormCard title={currentStep.title} fields={currentStep.fields} />
             <div className="d-flex justify-content-between mt-4">
-              {step > 0 && <Button onClick={back}>Back</Button>}
-              <Button onClick={next}>Next</Button>
+              {step > 0 && <Button variant="secondary" onClick={back}>Back</Button>}
+              <Button variant="primary" onClick={next}>Next</Button>
             </div>
           </>
         ) : (
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <FormCard title={currentStep.title} fields={currentStep.fields} />
             <div className="d-flex justify-content-between mt-4">
-              {step > 0 && <Button onClick={back}>Back</Button>}
+              {step > 0 && <Button variant="secondary" onClick={back}>Back</Button>}
               <Button type="submit" variant="success">Submit</Button>
             </div>
           </form>

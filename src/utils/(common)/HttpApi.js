@@ -1,4 +1,3 @@
-// utils/api.js
 import axios from 'axios';
 
 /**
@@ -12,33 +11,18 @@ const apiClient = axios.create({
 });
 
 /**
- * Utility to ensure a minimum loading time
- * @param {Promise} promise - Axios request promise
- * @param {number} minTime - Minimum time in ms
- * @returns {Promise<any>}
- */
-const withMinLoading = async (promise, minTime = 2000) => {
-  const start = Date.now();
-  const result = await promise;
-  const elapsed = Date.now() - start;
-  const remaining = minTime - elapsed;
-  if (remaining > 0) await new Promise(resolve => setTimeout(resolve, remaining));
-  return result;
-};
-
-/**
- * Global reusable API methods with configurable minimum loading time
+ * Global reusable API methods
  */
 export const api = {
-  get: (url, config = {}, minLoadingTime = 20) =>
-    withMinLoading(apiClient.get(url, config).then(res => res.data), minLoadingTime),
+  get: (url, config = {}) =>
+    apiClient.get(url, config).then(res => res.data),
 
-  post: (url, data = {}, config = {}, minLoadingTime = 2000) =>
-    withMinLoading(apiClient.post(url, data, config).then(res => res.data), minLoadingTime),
+  post: (url, data = {}, config = {}) =>
+    apiClient.post(url, data, config).then(res => res.data),
 
-  put: (url, data = {}, config = {}, minLoadingTime = 2000) =>
-    withMinLoading(apiClient.put(url, data, config).then(res => res.data), minLoadingTime),
+  put: (url, data = {}, config = {}) =>
+    apiClient.put(url, data, config).then(res => res.data),
 
-  delete: (url, config = {}, minLoadingTime = 2000) =>
-    withMinLoading(apiClient.delete(url, config).then(res => res.data), minLoadingTime),
+  delete: (url, config = {}) =>
+    apiClient.delete(url, config).then(res => res.data),
 };

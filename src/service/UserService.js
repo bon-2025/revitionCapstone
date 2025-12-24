@@ -14,7 +14,8 @@ export default function UserService() {
 
   const login = (email, password) => {
     return run(async () => {
-      const users = await api.get("/users", { params: { email, password } }, 3000);
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      const users = await api.get("/users", { params: { email, password }});
 
       if (!users || users.length === 0) throw new Error("Invalid email or password");
 

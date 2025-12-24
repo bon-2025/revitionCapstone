@@ -1,8 +1,7 @@
 // src/config/loginFieldsConfig.js
 
 const loginFields = [
-  {
-    name: "email",
+  { name: "email",
     label: "Email",
     type: "email",
     placeholder: "Enter your email",
